@@ -1,0 +1,21 @@
+************Add Foreign Key******************
+ALTER TABLE articles_categories
+ADD FOREIGN KEY (article_id) REFERENCES articles(id)
+on delete cascade;
+
+ALTER TABLE articles_categories
+ADD FOREIGN KEY (category_id) REFERENCES categories(id)
+on delete cascade;
+
+ALTER TABLE images
+ADD FOREIGN KEY (article_id) REFERENCES articles(id)
+on delete cascade;
+
+ALTER TABLE comments
+ADD FOREIGN KEY (article_id) REFERENCES articles(id)
+on delete restrict;
+
+
+************Delete Foreign Key******************
+alter table comments drop foreign key comments_ibfk_1
+alter table comments drop foreign key comments_ibfk_2
